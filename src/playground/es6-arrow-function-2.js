@@ -1,8 +1,6 @@
-'use strict';
-
 // arguments object - no longer bound with arrow functions
 
-var add = function add(a, b) {
+const add = (a, b) => {
   // console.log(arguments)
   return a + b;
 };
@@ -11,36 +9,28 @@ console.log(add(55, 1, 1001));
 
 // this keyword - no longer bound
 
-var user = {
+const user = {
   name: 'Andrew',
   cities: ['Philadelphia', 'New York', 'Dublin'],
-  printPlacesLived: function printPlacesLived() {
-    var _this = this;
-
-    return this.cities.map(function (city) {
-      return _this.name + ' has lived in ' + city;
-    });
+  printPlacesLived() {
+    return this.cities.map((city) => this.name + ' has lived in ' + city);
   }
 };
 console.log(user.printPlacesLived());
 
 // CHallenge area
 
-var multiplier = {
-
+const multiplier = {
+ 
   numbers: [10, 20, 30],
   multiplyBy: 3,
-  multiply: function multiply() {
-    var _this2 = this;
+  multiply() {
+    return this.numbers.map((number) => number * this.multiplyBy);
 
-    return this.numbers.map(function (number) {
-      return number * _this2.multiplyBy;
-    });
   }
   // numbers - array of numbers
   // multiplyBy - single number
   // multiply - return a new array where the number has been ultiplied
-
 };
 
 console.log(multiplier.multiply());
