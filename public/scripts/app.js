@@ -31,6 +31,13 @@ var onRemoveAll = function onRemoveAll() {
   app.options = [];
   render();
 };
+
+var onMakeDecision = function onMakeDecision() {
+  var randomNum = Math.floor(Math.random() * app.options.length);
+  var option = app.options[randomNum];
+  alert(option);
+  console.log(randomNum);
+};
 // create "Remove All" button above list
 // on click -> wipe the array -> render
 
@@ -56,9 +63,9 @@ var render = function render() {
       app.options.length > 0 ? 'Here are your option' : 'No Options'
     ),
     React.createElement(
-      'p',
-      null,
-      app.options.length
+      'button',
+      { disabled: app.options.length === 0, onClick: onMakeDecision },
+      'What should I do?'
     ),
     React.createElement(
       'button',
