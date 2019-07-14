@@ -12,8 +12,8 @@ export class ExpenseListFilters extends React.Component {
     this.props.setEndDate(endDate);
   };
   onFocusChange = (calendarFocused) => {
-    this.setState(() => ({ calendarFocused }))
-  };
+    this.setState(() => ({ calendarFocused }));
+  }
   onTextChange = (e) => {
     this.props.setTextFilter(e.target.value);
   };
@@ -30,10 +30,12 @@ export class ExpenseListFilters extends React.Component {
         <input
           type="text"
           value={this.props.filters.text}
-          onChange={this.onTextChange} />
+          onChange={this.onTextChange}
+        />
         <select
           value={this.props.filters.sortBy}
-          onChange={this.onSortChange}>
+          onChange={this.onSortChange}
+        >
           <option value="date">Date</option>
           <option value="amount">Amount</option>
         </select>
@@ -45,12 +47,12 @@ export class ExpenseListFilters extends React.Component {
           onFocusChange={this.onFocusChange}
           showClearDates={true}
           numberOfMonths={1}
-          isOutsideRange={() => false }
+          isOutsideRange={() => false}
         />
       </div>
     );
   }
-}
+};
 
 const mapStateToProps = (state) => ({
   filters: state.filters
